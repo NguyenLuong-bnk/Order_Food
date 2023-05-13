@@ -11,7 +11,6 @@ import Checkout from '../pages/CheckoutTemplate.vue';
 import Thank from '../pages/ThankTemplate.vue';
 import MyOrder from '../pages/MyOrder.vue';
 import Admin from '../admin/views/AdminTemplate.vue';
-import Dashboard from '../admin/views/DashboardTemplate.vue';
 import Managerfood from '../admin/views/ManagerFoodTemplate.vue';
 import User from '../admin/views/UserTemplate.vue'
 import Bookingtable from '../admin/views/BookingtableTemplate.vue'
@@ -79,11 +78,6 @@ const routes = [
     path: "/admin",
     name: "Admin",
     component: Admin,
-  },
-  {
-    path: "/admin/dashboard",
-    name: "Dashboard",
-    component: Dashboard,
   },
   {
     path: "/admin/managerfood",

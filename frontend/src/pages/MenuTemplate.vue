@@ -408,6 +408,7 @@ export default {
             this.pageNum = 0;
             this.foodObj.type = "";
             this.foodObj.type += e.target.value;
+            
             document.querySelector(`[for=${e.target.id}]`).style.background = "#057835fa";
             document.querySelector(`[for=${e.target.id}]`).style.color = "white";
             document.querySelector(`[for=${e.target.id}]`).querySelector(":scope > button").style.display = "block";

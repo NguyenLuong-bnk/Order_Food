@@ -1,4 +1,21 @@
 <template>
+  <div class="header">
+    <nav class="navbar">
+      <router-link @click="scrollToTop()" to="/admin/user">User</router-link>
+      <router-link @click="scrollToTop()" to="/admin/Managerfood"
+        >Food</router-link
+      >
+      <router-link @click="scrollToTop()" to="/admin/Managerorder"
+        >Order</router-link
+      >
+      <router-link @click="scrollToTop()" to="/admin/bookingtable"
+        >Booking</router-link
+      >
+    </nav>
+    <div class="d-flex justify-content-between">
+      <button class="btn" @click="handleLogout()" to="/admin">Đăng xuất</button>
+    </div>
+  </div>
   <div class="admin-container">
     <div class="d-flex justify-content-between">
       <h1>USERS</h1>
@@ -44,10 +61,11 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 import axios from "axios";
 
 export default {
-  name: "UserTemplate",
+  name: "DashboardTemplate",
   data() {
     return {
       items: [],
@@ -56,9 +74,19 @@ export default {
 
   created() {
     this.getAllUser();
+    
   },
 
   methods: {
+    ...mapMutations(["setAdmin"]),
+    scrollToTop() {
+      window.scrollTo(0, 0);
+    },
+
+    handleLogout: function () {
+      this.setAdmin("");
+    },
+
     async getAllUser() {
       try {
         const response = await axios.get("http://localhost:8081/api/users");
@@ -67,7 +95,6 @@ export default {
         console.log(err);
       }
     },
-
     async deleteUser(id) {
       try {
         await axios.delete(`http://localhost:8081/api/users/${id}`);
@@ -79,7 +106,66 @@ export default {
   },
 };
 </script>
+
 <style scoped>
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 9%;
+}
+
+.header .navbar a {
+  font-size: 1.7rem;
+  margin: 0 1rem;
+  color: #666;
+}
+
+.header .navbar a:hover {
+  color: #27ae60;
+}
+
+.header .navbar a.router-link-exact-active {
+  color: #f38609;
+}
+
+@media (max-width: 768px) {
+  .header .navbar {
+    position: absolute;
+    top: 99%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  .header .navbar.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  .header .navbar a {
+    font-size: 2rem;
+    margin: 2rem;
+    display: block;
+  }
+}
+
+@media (max-width: 576px) {
+  .header .navbar a {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+}
+
 .admin-container {
   background-color: #fff;
   height: 100vh;

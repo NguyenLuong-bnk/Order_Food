@@ -53,7 +53,7 @@ export default {
                 e.preventDefault();
                 if (this.key === this.adminObj.pass) {
                     this.setAdmin("admin");
-                    this.$router.push("/admin/dashboard");
+                    this.$router.push("managerorder");
                 }
                 else {
                     this.errors.push("Admin password wrong!")

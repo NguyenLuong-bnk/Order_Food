@@ -186,60 +186,60 @@ export default {
 
             // Phone validate
             if (!this.checkoutObj.phone) {
-                this.errorObj.phoneErr.push('Entering phone number is required');
+                this.errorObj.phoneErr.push('Nhập số điện thoại là bắt buộc');
             }
             else {
                 if (!this.checkoutObj.phone.startsWith('84')) {
-                    this.errorObj.phoneErr.push('Phone numbers must start with 84');
+                    this.errorObj.phoneErr.push('Số điện thoại phải bắt đầu bằng 84');
                 }
 
                 if (this.checkoutObj.phone.length != 11) {
-                    this.errorObj.phoneErr.push('Phone numbers must have exactly 11 digits');
+                    this.errorObj.phoneErr.push('Số điện thoại phải có chính xác 11 chữ số');
                 }
 
                 if (!/[0-9]{11}/.test(this.checkoutObj.phone)) {
-                    this.errorObj.phoneErr.push('Phone numbers can only contain numbers');
+                    this.errorObj.phoneErr.push('Số điện thoại chỉ có thể chứa số');
                 }
             }
 
             // Address validate
             if (!this.checkoutObj.address) {
-                this.errorObj.addressErr.push('Entering address is required');
+                this.errorObj.addressErr.push('Nhập địa chỉ là bắt buộc');
             }
 
             // Card validate
             if (!this.checkoutObj.paymentMethod) {
-                this.errorObj.payErr.push('Selecting payment method is required');
+                this.errorObj.payErr.push('Chọn phương thức thanh toán là bắt buộc');
             }
             else if (this.checkoutObj.paymentMethod == "card") {
                 if (!this.cardObj.number) {
-                    this.errorObj.numErr.push('Entering card number is required');
+                    this.errorObj.numErr.push('Nhập số thẻ là bắt buộc');
                 }
                 else {
                     if (!this.cardObj.number.startsWith('4')) {
-                        this.errorObj.numErr.push('Visa card numbers must start with 4');
+                        this.errorObj.numErr.push('Số thẻ Visa phải bắt đầu bằng 4');
                     }
 
                     if (this.cardObj.number.length != 16) {
-                        this.errorObj.numErr.push('Visa card numbers must have exactly 16 digits');
+                        this.errorObj.numErr.push('Số thẻ Visa phải có chính xác 16 chữ số');
                     }
 
                     if (!/[0-9]{16}/.test(this.cardObj.number)) {
-                        this.errorObj.numErr.push('Visa card numbers can only contain numbers');
+                        this.errorObj.numErr.push('Số thẻ visa chỉ có thể chứa số');
                     }
                 }
 
                 if (!this.cardObj.name) {
-                    this.errorObj.nameErr.push('Entering name is required');
+                    this.errorObj.nameErr.push('Nhập tên là bắt buộc');
                 }
                 else {
                     if (!/^[A-Za-z]+$/.test(this.cardObj.name.replace(/\s/g, ""))) {
-                        this.errorObj.nameErr.push('A name can only contain letters');
+                        this.errorObj.nameErr.push('Tên chỉ có thể chứa các chữ cái');
                     }
                 }
 
                 if (!this.cardObj.expiryDate) {
-                    this.errorObj.exDateErr.push('Entering expiry date is required');
+                    this.errorObj.exDateErr.push('Nhập ngày hết hạn là bắt buộc');
                 }
 
 
@@ -248,11 +248,11 @@ export default {
                 }
                 else {
                     if (this.cardObj.cvv.length != 3) {
-                        this.errorObj.cvvErr.push('Cvv code must have exactly 3 digits');
+                        this.errorObj.cvvErr.push('Mã cvv phải có đúng 3 chữ số');
                     }
 
                     if (!/[0-9]{3}/.test(this.cardObj.cvv)) {
-                        this.errorObj.cvvErr.push('Cvv code can only contain numbers');
+                        this.errorObj.cvvErr.push('Mã cvv chỉ có thể chứa số');
                     }
                 }
             } else if (this.checkoutObj.paymentMethod == "cash") {

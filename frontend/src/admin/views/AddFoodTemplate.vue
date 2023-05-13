@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-5">
+  <div class="container mt-3">
     <div class="card">
       <div class="card-header">
         <h4>Add Food</h4>
@@ -44,22 +44,38 @@
       <div class="card-body">
         <div class="mt-3">
           <label for=""> Status</label>
-          <input type="text" v-model="foodStatus" class="form-control" />
+          <select class="form-control" v-model="foodStatus">
+            <option>seasonal dishes online only</option>
+            <option>new dishes</option>
+            <option>normal</option>
+            <option>best seller</option>
+          </select>
         </div>
       </div>
       <div class="card-body">
         <div class="mt-3">
           <label for=""> Type</label>
-          <input type="text" v-model="foodType" class="form-control" />
+          <select class="form-control" v-model="foodType">
+            <option>meat</option>
+            <option>vegan</option>
+          </select>
         </div>
       </div>
+
       <div class="card-body">
         <div class="mt-3">
           <label for=""> Category</label>
-          <input type="text" v-model="foodCategory" class="form-control" />
+          <select class="form-control" v-model="foodCategory">
+            <option>taco</option>
+            <option>burrito</option>
+            <option>nochos</option>
+            <option>sides</option>
+            <option>dessert</option>
+            <option>drink</option>
+          </select>
         </div>
       </div>
-      <div class="card-body ">
+      <div class="card-body">
         <div class="mt-3">
           <label for=""> Image</label>
           <input type="text" v-model="foodSrc" class="form-control" />
